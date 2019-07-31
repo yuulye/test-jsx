@@ -8,7 +8,11 @@ class Loading extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.dot(), 300);
+    this.intervalDot = setInterval(() => this.dot(), 300);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalDot);
   }
 
   dot() {
